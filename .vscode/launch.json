@@ -1,0 +1,21 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run install_few.sh", // Name displayed in the debug dropdown
+      "type": "node",             // We can often leverage the 'node' type
+      "request": "launch",
+      "runtimeExecutable": "bash",  // Specify 'bash' as the program to run
+      "runtimeArgs": [
+        "${workspaceFolder}/install_few.sh" // Argument: path to your script
+      ],
+      "cwd": "${workspaceFolder}",  // Set the working directory to your project root
+      "console": "integratedTerminal", // Show output in VS Code's terminal
+      "internalConsoleOptions": "neverOpen" // Don't open the debug console
+    }
+    // You can add other configurations here
+  ]
+}
