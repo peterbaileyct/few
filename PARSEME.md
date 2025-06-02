@@ -40,6 +40,21 @@ When an LLM is compiling a FEW file, it must do the following:
     - If a file was not in the "generated files" list but was generated in this compilation, it should be added.
   - Indicate to the user which file(s) should be added or removed. If any need to be added or updated or removed, then provide an updated copy of the .few file source code for them to update the existing file.
   - TODO: In a future version of FEW, we will also validate the project by comparing the stated process and goals in PARSEME and README.
+  - If the compile request was sent by a script, e.g. from few.py, then response should be in JSON notation. It should be formatted as follows:
+  A "success" flag should indicate whether or not the FEW compiler was able to generate files appropriately. "files" is an array of file objects, each of which has a "path" relative to the project root in which FEW is running and "content" to be written into that file.
+
+  For example:
+  ``` JSON
+  {
+    "success": true,
+    "files": [
+      {
+        "path": "hello.ps1",
+        "content": "Write-Host 'Hello World'"
+      }
+    ]
+  }
+  ```
 
   # FEW Backport
   When an LLM is asked to "BACKPORT" changes from generated files into the .few.md files, it should be treated as if this prompt was submitted:
